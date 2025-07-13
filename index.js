@@ -191,6 +191,14 @@ app.delete(
 //     });
 // }));
 
+// Health-check / home route
+app.get('/', (req, res) => {
+  res.json({
+    status: 'success',
+    message: 'Welcome to my API! Try /signup, /login, or /users'
+  });
+});
+
 // 404 handler for undefined route
 app.use((req, res, next) => {
   next(new ApiError(404, `Route ${req.originalUrl} not found`));
